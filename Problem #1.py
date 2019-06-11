@@ -24,3 +24,34 @@ Output: return the tree root node representing the following tree:
 Note:
 The size of the given array will be in the range [1,1000].
 '''
+
+
+#Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, x):
+        self.val = x
+        self.left = None
+        self.right = None
+
+
+class Solution:
+    head = None
+    current = None
+
+    def constructMaximumBinaryTree(self, nums: List[int]) ->:TreeNode:
+m = nums.index(max(nums))
+global head
+global current
+if not head:
+    head = TreeNode()
+    head.val = max(nums)
+    head.left = constructMaximumBinaryTree(self, nums[:m])
+    head.right = constructMaximumBinaryTree(self, nums[m + 1:])
+elif not current:
+    current = head
+else:
+    pass
+current.left = constructMaximumBinaryTree(self, nums[:m])
+current.right = constructMaximumBinaryTree(self, nums[m + 1:])
+return head
+'''
