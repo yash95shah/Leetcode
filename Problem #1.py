@@ -38,19 +38,19 @@ class Solution:
     head = None
     current = None
 
-    def constructMaximumBinaryTree(self, nums: List[int]) ->:TreeNode:
-m = nums.index(max(nums))
-global head
-global current
-if not head:
-    head = TreeNode()
-    head.val = max(nums)
-    head.left = constructMaximumBinaryTree(self, nums[:m])
-    head.right = constructMaximumBinaryTree(self, nums[m + 1:])
-elif not current:
-    current = head
-else:
-    pass
+def constructMaximumBinaryTree(self, nums: List[int]) ->:TreeNode:
+    m = nums.index(max(nums))
+    global head
+    global current
+    if not head:
+        head = TreeNode()
+        head.val = max(nums)
+        head.left = constructMaximumBinaryTree(self, nums[:m])
+        head.right = constructMaximumBinaryTree(self, nums[m + 1:])
+    elif not current:
+        current = head
+    else:
+        pass
 current.left = constructMaximumBinaryTree(self, nums[:m])
 current.right = constructMaximumBinaryTree(self, nums[m + 1:])
 return head
