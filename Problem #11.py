@@ -11,6 +11,9 @@ class treeNode():  # For the tree node only
         self.data, self.left, self.right = data, left, right
         self.depth = None
 
+    def __str__(self):
+        return "Value" + str(self.data)
+
 
 class ListNode():  # For the linkedlist only
     def __init__(self, data=None, next=None):
@@ -42,7 +45,11 @@ class Queue():
         if not head:
             return "Nothing dumbass"
         item = self.head
+        print(str(item))
         while item != self.tail:
+            item = item.next
+            print(str(item))
+        return None
 
 
 if __name__ is '__main__':
@@ -52,4 +59,4 @@ if __name__ is '__main__':
     print(node)
     queue.add(node)
     queue.remove()
-    pass
+    print(queue)
