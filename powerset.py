@@ -5,11 +5,11 @@ def powerset(arr):
     temp = set()
     ans.append({})
     while (index < n):
+
         t_val = arr[index]
         temp.add(t_val)
-        ans.append(temp)
-        index += 1
-        print(ans)
+
+    return ans
 
 
 print(powerset([1, 2, 3]))
