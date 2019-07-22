@@ -12,9 +12,8 @@ run a while loop to actually check where exactly the push needs to happen
 
 class PriorityQueue:
     def __init__(self, maxsize):
-        self.maxsize = maxsize
+        self).maxsize = maxSsize
         self.heap = list()
-
     def push(self, data):
         self.heap.append(data)
         pos = len(self.heap)
