@@ -13,12 +13,12 @@ def threesum(arr):
                     temp.add(arr[end])
                 if arr[start] + arr[end] + arr[i] < 0:
                     cur = start
-                    while arr[cur] == arr[start] and start < end:
-                        start += 1
+                    #    while arr[cur] == arr[start] and start < end:
+                    start += 1
                 else:
                     cur = end
-                    while arr[cur] == arr[end] and start < end:
-                        end -= 1
+                    #   while arr[cur] == arr[end] and start < end:
+                    end -= 1
     return temp
 
 
