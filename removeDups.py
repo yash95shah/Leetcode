@@ -28,45 +28,21 @@ class LinkedList:
         
         while (curr ):
             if curr.val in self.buffer:
-                #print (curr.next.val)
                 prev.next = curr.next
                 curr = curr.next
-               # self.removeDups()
             else:
-                # print (curr.val)
                 self.buffer.append(curr.val)
                 prev = prev.next
                 curr = curr.next
-             
-            
-
         return
 
     def printList(self):
         o_str=""
         curr = self.head
         while curr:
-            o_str += str(curr.val)+"-->"
+            o_str += str(curr.val)+" --> "
             curr=curr.next
         o_str += "None"
         print(o_str)
         return 
 
-
-
-
-
-    
-
-ll=LinkedList(4)
-ll.append(11)
-ll.append(11)
-ll.append(4)
-ll.append(4)
-ll.append(8)
-ll.append(4)
-ll.printList()
-
-ll.removeDups()
-print (ll.buffer)
-ll.printList()
