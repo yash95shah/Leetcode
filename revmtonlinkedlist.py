@@ -34,11 +34,8 @@ class LinkedList():
         return
 
     def reverse_sub(self, m, n):
-       
         if m > n: return
-        
         dummy = Node(0)
-        
         dummy.next = self.root
         #print (dummy.next.val)
         start = dummy
