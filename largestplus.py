@@ -1,46 +1,24 @@
+def maxorderplus(N, mines):
+    if len(mines)==N**2: return 0
+    grid = [['1']*N for _ in range(N)]
+    for i,j in mines: grid[i][j]='0'
+    grid_row = [''.join(row) for row in grid]
+    grid_col = [''.join(col) for col in map(list, zip(*grid))]
+    res = 1
+    for i in range(N):
+        for j in range(N):
+            if grid[i][j]=='1':
+                while True:
+                    if (j-res>=0 and j+res<N and i-res>=0 and i+res<N and
+                        '0' not in grid_row[i][j-res:j+res+1] and
+                        '0' not in grid_col[j][i-res:i+res+1]):
+                        res+=1                                     
+                    else:  
+                        break
+    return res
 
 
 
+mines = [[4,2]]
 
-
-# # def largestPlus(N:int, mines:List[List[int]])->int:
-#     pass
-order = 1
-mines = [[4,2],[1,2],[2,1],[2,3]]
-matrix =[ [1] * 5  for _ in range(5)] 
-
-def maxorderplus(matrix, mines):
-    temp, final = 0,0
-    for x in mines:
-        matrix[x[0]][x[1]] = 0
-    print (matrix)
-    for x in range(5):
-        for y in range(5):
-            if matrix[x][y] == 1:
-                temp = giveorder(x,y, matrix)
-                if temp > final:
-                    final =  temp
-    return final
-
-def giveorder(i, j, matrix):
-    order = 1
-
-    while i+order <= 4 and i-order >= 0 and j+order <= 4 and j -order >= 0 and matrix[i+order][j] == 1 and matrix[i-order][j] == 1 and matrix[i][j+order] == 1 and matrix[i][j-order] == 1:
-        print (str(i)+" " +str(j))
-        
-        order += 1
-    return order
-
-    #matrix[2] = [8] * 5
-'''
-1 1 1 1 1
-1 1 0 1 1
-1 0 1 0 1
-1 1 1 1 1
-1 1 0 1 1
-
-'''
-
-
-
-print (maxorderplus(matrix, mines))
+print (maxorderplus(5, mines))
